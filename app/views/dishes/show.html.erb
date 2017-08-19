@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+<tr>
+  <td><%=@dish.name%></td>
+  <td><%=@dish.description%></td>
+  <td><%=@dish.price%></td>
+  <td><%=@dish.active%></td>
+
+</tr>
+
+<%= link_to 'Edit', edit_chef_dish_path(@chef, @dish) %> |
+<%= link_to 'Back', chef_dishes_path(@chef) %>

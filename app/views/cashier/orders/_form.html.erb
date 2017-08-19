@@ -1,0 +1,10 @@
+<%= simple_form_for [:cashier, @order] do |form| %>
+    <%= form.simple_fields_for(:quantities) do |roles_form| %>
+        <%= roles_form.input :quantity %>
+        <%= roles_form.simple_fields_for(:dish) do |dish_form| %>
+            <%= dish_form.input :id, label: "Id" %>
+        <% end %>
+    <% end %>
+
+    <%= form.submit "Submit" %>
+<% end %>

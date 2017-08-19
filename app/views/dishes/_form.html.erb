@@ -1,0 +1,28 @@
+<%= form_with(model: [ @chef, @dish ], local: true) do |form| %>
+  <% if dish.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dish.errors.count, "error") %> prohibited this dish from being saved:</h2>
+
+      <ul>
+      <% dish.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+
+    <%= form.label :active %>
+    <%= form.check_box :active, {}, true, false %>
+
+    <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
