@@ -1,14 +1,11 @@
 # == Schema Information
 #
-# Table name: orders
+# Table name: customers
 #
-#  id             :integer          not null, primary key
-#  state          :integer          default("commands")
-#  payment_method :integer          default("cash")
-#  total          :float
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
-#  customer_id    :integer
+#  id         :integer          not null, primary key
+#  name       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

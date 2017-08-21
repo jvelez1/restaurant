@@ -1,10 +1,8 @@
 <%= simple_form_for [:cashier, @order] do |form| %>
-    <%= form.simple_fields_for(:quantities) do |roles_form| %>
-        <%= roles_form.input :quantity %>
-        <%= roles_form.simple_fields_for(:dish) do |dish_form| %>
-            <%= dish_form.input :id, label: "Id" %>
-        <% end %>
-    <% end %>
+    <%= form.collection_check_boxes :dish_ids, Dish.all, :id, :name %>
+    <%= form.select :customer_id, Customer.all.map { |r| [r.user.email, r.id ] }, include_blank: false %>
 
     <%= form.submit "Submit" %>
 <% end %>
+
+

@@ -35,10 +35,19 @@ end
 end
 =end
 
-chef = Chef.first()
+# chef = Chef.first()
+#
+# 2.times do |i|
+#   dish = Dish.new(name: "Plato#{i}", description: "Tiene #{i} ingerdientes",
+#                   price: 18.50, chef_id: chef.id)
+#   dish.save
+# end
 
-2.times do |i|
-  dish = Dish.new(name: "Plato#{i}", description: "Tiene #{i} ingerdientes",
-                  price: 18.50, chef_id: chef.id)
-  dish.save
-end
+# 2.times do |i|
+#   user = User.new(email: "Customer#{i + 1}@tektonuser.com",
+#                   password: '12345678', # Devise.friendly_token[0,20]
+#                   password_confirmation: '12345678')
+#
+#   user.profile = Customer.new
+#   user.save
+# end

@@ -3,7 +3,14 @@ Rails.application.routes.draw do
   root to: 'welcome#index'
 
   resources :chefs do
-    resources :dishes do
+    resources :dishes
+  end
+
+  namespace :chef do
+    resources :orders, only: [:index] do
+      collection do
+        put :finished
+      end
     end
   end
 

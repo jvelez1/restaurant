@@ -51,4 +51,8 @@ class User < ApplicationRecord
   def cashier?
     profile_type == Cashier.name ? true : false
   end
+
+  def customer?
+    profile_type == Customer.name ? true : false
+  end
 end
