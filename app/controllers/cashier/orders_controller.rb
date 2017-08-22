@@ -1,6 +1,6 @@
 class Cashier::OrdersController < ApplicationController
   def index
-    @orders = Order.by_date
+    @orders = Order.order_today
   end
 
   def new

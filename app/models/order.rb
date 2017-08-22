@@ -27,7 +27,8 @@ class Order < ApplicationRecord
   scope :in_command, -> { where(state: [:commands]) }
   scope :in_processing, -> { where(state: [:processing]) }
   scope :in_finished, -> { where(state: [:finished]) }
-  scope :by_date, -> { order(created_at: :desc).where(date) }
+  scope :today, -> { where("created_at BETWEEN '#{DateTime.now.beginning_of_day}' AND '#{DateTime.now.end_of_day}'") }
+  scope :order_today, -> { order(created_at: :desc).today }
 
 
   def update_total

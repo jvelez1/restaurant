@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  devise_scope :user do
-       unauthenticated do
+  devise_scope :users do
+    unauthenticated do
       root 'welcome#index', as: :unauthenticated_root
     end
   end

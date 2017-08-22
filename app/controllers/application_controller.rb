@@ -9,5 +9,4 @@ class ApplicationController < ActionController::Base
       cashier_orders_path
     end
   end
-
 end

@@ -1,11 +1,16 @@
-<p id="notice"><%= notice %></p>
-<tr>
-  <td><%=@dish.name%></td>
-  <td><%=@dish.description%></td>
-  <td><%=@dish.price%></td>
-  <td><%=@dish.active%></td>
 
-</tr>
 
-<%= link_to 'Edit', edit_chef_dish_path(@chef, @dish) %> |
-<%= link_to 'Back', chef_dishes_path(@chef) %>
+<div class="card col s12 m7">
+  <div class="card-image waves-effect waves-block waves-light ">
+    <%= circle_img @dish.picture.url(:medium) %>
+  </div>
+  <div class="card-content ">
+    <span class="card-title activator grey-text text-darken-4"><%=@dish.name%><i class="material-icons right">more_vert</i></span>
+    <p><a href="#">This is a link</a></p>
+  </div>
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4"><%=@dish.name%><i class="material-icons right">close</i></span>
+    <p><%=@dish.description%></p>
+    <p><%=@dish.price%></p>
+  </div>
+</div>
