@@ -36,6 +36,8 @@ gem 'materialize-sass'
 
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
 
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

@@ -1,0 +1,22 @@
+<% unless current_user.nil? %>
+    <ul id="dropdown1" class="dropdown-content">
+      <li><a href="<%= destroy_user_session_path %>" data-method="delete">Sign out</a></li>
+    </ul>
+    <nav>
+      <div class="nav-wrapper teal ">
+        <a href="#" class="brand-logo center">Logo</a>
+        <ul id=" nav-mobile" class="left ">
+          <% if current_user.chef? %>
+              <li><a href="<%=  new_chef_dish_path(chef_id: current_user.profile)%>">Dishes</a></li>
+              <li><a href="<%=  chef_orders_path %>">Orders</a></li>
+
+        <% end%>
+        </ul>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><%=current_user.email %><i class="material-icons right">arrow_drop_down</i></a></li>
+        </ul>
+      </div>
+    </nav>
+
+
+<% end %>
