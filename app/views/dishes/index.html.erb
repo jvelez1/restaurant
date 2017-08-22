@@ -20,9 +20,14 @@
         <td><%=dish.name%></td>
         <td><%=dish.description%></td>
         <td>$<%=dish.price%></td>
-        <td><%= link_to 'Show', chef_dish_path(@chef, dish) %></td>
-        <td><%= link_to 'Edit', edit_chef_dish_path(@chef, dish) %></td>
-        <td><%= link_to 'Disable', [@chef, dish], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to content_tag('i','edit', class: 'material-icons'), edit_chef_dish_path(@chef, dish) %></td>
+        <td><%= link_to content_tag('i','visibility', class: 'material-icons'), chef_dish_path(@chef, dish) %></td>
+        <%if dish.active? %>
+            <td><%= link_to content_tag('i','check', class: 'material-icons'), [@chef, dish], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%else%>
+            <td><%= link_to content_tag('i','close', class: 'material-icons'), [@chef, dish], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <%end%>
+
       </tr>
     <% end %>
   </tbody>

@@ -9,7 +9,9 @@
           <% if current_user.chef? %>
               <li><a href="<%=   chef_dishes_path(chef_id: current_user.profile)%>">Dishes</a></li>
               <li><a href="<%=  chef_orders_path %>">Orders</a></li>
-
+          <%elsif current_user.admin?%>
+              <li><a href="<%= admin_orders_path %>">Orders</a></li>
+              <li><a href="<%= cash_flow_admin_orders_path %>">CashFlow</a></li>
         <% end%>
         </ul>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -17,6 +19,4 @@
         </ul>
       </div>
     </nav>
-
-
 <% end %>

@@ -58,9 +58,13 @@ class DishesController < ApplicationController
   def destroy
     respond_to do |format|
       if @dish.my_chef?(@chef)
-        @dish.active = false
+        if @dish.active?
+          @dish.active = false
+        else
+          @dish.active = true
+        end
         if @dish.save
-          format.html { redirect_to :chef_dishes, notice: 'Dish was successfully Disable.' }
+          format.html { redirect_to :chef_dishes }
         else
           format.html { render :edit }
         end

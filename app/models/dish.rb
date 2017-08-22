@@ -30,4 +30,13 @@ class Dish < ApplicationRecord
   def my_chef?(chef_)
     chef == chef_ ? true : false
   end
+
+  def active_?
+    if active
+      'Active'
+    else
+      'disabled'
+    end
+  end
+
 end
