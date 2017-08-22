@@ -24,7 +24,12 @@
         <td><%=order.customer.user.email%> </td>
         <td><%=order.state%></td>
         <td><%=order.total%></td>
-        <td><%= link_to 'Finish', finished_chef_orders_path(id: order), method: :put %></td>
+
+        <% if order.processing? %>
+          <td><%= link_to 'Finalized', finalized_chef_orders_path(id: order), method: :put %></td>
+        <% elsif order.commands? %>
+          <td><%= link_to 'Process', to_process_chef_orders_path(id: order), method: :put %></td>
+        <% end %>
       </tr>
   <% end %>
   </tbody>

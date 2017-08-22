@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   namespace :chef do
     resources :orders, only: [:index] do
       collection do
-        put :process
+        put :to_process
         put :finalized
       end
     end
