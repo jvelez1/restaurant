@@ -6,10 +6,23 @@ Rails.application.routes.draw do
     resources :dishes
   end
 
+  namespace :admin do
+    resources :orders, only: [:index, :show] do
+      member do
+        get :report
+      end
+      collection do
+        get :report
+        get :cash_flow
+      end
+    end
+  end
+
   namespace :chef do
     resources :orders, only: [:index] do
       collection do
-        put :finished
+        put :process
+        put :finalized
       end
     end
   end

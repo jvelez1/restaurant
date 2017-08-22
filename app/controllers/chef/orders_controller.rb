@@ -1,12 +1,22 @@
 class Chef::OrdersController < ApplicationController
   before_action :set_order, only: [:finished]
   def index
-    @orders = Order.in_commands
+    @orders = Order.in_command.or(Order.in_processing)
   end
 
-  def finished
+  def process
     respond_to do |format|
-      if @order.update(state: Order.states[:finished])
+      if @order.command? && @order.processing!
+        format.html { redirect_to chef_orders_path, notice: 'Order was successfully updated.' }
+      else
+        format.html { redirect_to chef_orders_path }
+      end
+    end
+  end
+
+  def finalized
+    respond_to do |format|
+      if @order.processing? && @order.finished!
         format.html { redirect_to chef_orders_path, notice: 'Order was successfully updated.' }
       else
         format.html { redirect_to chef_orders_path }

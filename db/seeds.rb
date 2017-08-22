@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-=begin
 2.times do |i|
   user = User.new(email: "admin#{i + 1}@tektonAdmin.com",
                   password: '12345678', # Devise.friendly_token[0,20]
@@ -33,21 +32,20 @@ end
   user.profile = Cashier.new
   user.save
 end
-=end
 
-# chef = Chef.first()
-#
-# 2.times do |i|
-#   dish = Dish.new(name: "Plato#{i}", description: "Tiene #{i} ingerdientes",
-#                   price: 18.50, chef_id: chef.id)
-#   dish.save
-# end
+chef = Chef.first()
 
-# 2.times do |i|
-#   user = User.new(email: "Customer#{i + 1}@tektonuser.com",
-#                   password: '12345678', # Devise.friendly_token[0,20]
-#                   password_confirmation: '12345678')
-#
-#   user.profile = Customer.new
-#   user.save
-# end
+2.times do |i|
+  dish = Dish.new(name: "Plato#{i}", description: "Tiene #{i} ingerdientes",
+                  price: 18.50, chef_id: chef.id)
+  dish.save
+end
+
+2.times do |i|
+  user = User.new(email: "Customer#{i + 1}@tektonuser.com",
+                  password: '12345678', # Devise.friendly_token[0,20]
+                  password_confirmation: '12345678')
+
+  user.profile = Customer.new
+  user.save
+end

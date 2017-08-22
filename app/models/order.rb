@@ -24,7 +24,9 @@ class Order < ApplicationRecord
                                 :allow_destroy => true
   # accepts_nested_attributes_for :dishes
 
-  scope :in_commands, -> { where(state: states[:commands]) }
+  scope :in_command, -> { where(state: [:commands]) }
+  scope :in_processing, -> { where(state: [:processing]) }
+  scope :in_finished, -> { where(state: [:finished]) }
 
   def update_total
     vartotal = 0
