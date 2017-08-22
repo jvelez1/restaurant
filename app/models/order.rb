@@ -27,6 +27,8 @@ class Order < ApplicationRecord
   scope :in_command, -> { where(state: [:commands]) }
   scope :in_processing, -> { where(state: [:processing]) }
   scope :in_finished, -> { where(state: [:finished]) }
+  scope :by_date, -> { order(created_at: :desc).where(date) }
+
 
   def update_total
     vartotal = 0

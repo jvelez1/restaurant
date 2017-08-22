@@ -1,6 +1,6 @@
 class Cashier::OrdersController < ApplicationController
   def index
-    @orders = Order.all
+    @orders = Order.by_date
   end
 
   def new

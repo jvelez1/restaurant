@@ -1,11 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Dishes</h1>
+<a class="btn-floating btn-large waves-effect waves-light right" href="<%=new_chef_dish_path(@chef)%>"><i class="material-icons">add</i></a>
 
-<table>
+
+
+<table class="responsive-table">
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Dish Price</th>
     </tr>
   </thead>
 
@@ -14,7 +19,7 @@
       <tr>
         <td><%=dish.name%></td>
         <td><%=dish.description%></td>
-        <td><%=dish.price%></td>
+        <td>$<%=dish.price%></td>
         <td><%= link_to 'Show', chef_dish_path(@chef, dish) %></td>
         <td><%= link_to 'Edit', edit_chef_dish_path(@chef, dish) %></td>
         <td><%= link_to 'Disable', [@chef, dish], method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -22,7 +27,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Dish', new_chef_dish_path(@chef) %>

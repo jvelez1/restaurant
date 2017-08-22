@@ -7,7 +7,7 @@
         <a href="#" class="brand-logo center">Logo</a>
         <ul id=" nav-mobile" class="left ">
           <% if current_user.chef? %>
-              <li><a href="<%=  new_chef_dish_path(chef_id: current_user.profile)%>">Dishes</a></li>
+              <li><a href="<%=   chef_dishes_path(chef_id: current_user.profile)%>">Dishes</a></li>
               <li><a href="<%=  chef_orders_path %>">Orders</a></li>
 
         <% end%>
