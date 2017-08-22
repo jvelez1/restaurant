@@ -13,6 +13,8 @@
 //= require rails-ujs
 //= require jquery
 //= require jquery_ujs
+//= require alertify.min
+//= require main
 //= require turbolinks
 //= require materialize-sprockets
 //= require_tree .
