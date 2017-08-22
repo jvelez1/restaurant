@@ -28,6 +28,7 @@ class Order < ApplicationRecord
   scope :in_processing, -> { where(state: [:processing]) }
   scope :in_finished, -> { where(state: [:finished]) }
   scope :today, -> { where("created_at BETWEEN '#{DateTime.now.beginning_of_day}' AND '#{DateTime.now.end_of_day}'") }
+  scope :month, -> { where('created_at >= ? AND created_at <= ?', DateTime.now.beginning_of_month, DateTime.now.end_of_month) }
 
   def update_total
     vartotal = 0
@@ -36,5 +37,13 @@ class Order < ApplicationRecord
     end
     self.total =  vartotal
     save!
+  end
+
+  def self.cash_flow_today
+    today.in_finished.sum(:total)
+  end
+
+  def self.cash_flow_month
+    month.in_finished.sum(:total)
   end
 end

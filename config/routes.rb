@@ -3,11 +3,10 @@ Rails.application.routes.draw do
   devise_for :users
 
   devise_scope :user do
-       unauthenticated do
+    unauthenticated do
       root 'welcome#index', as: :unauthenticated_root
     end
   end
-
 
   resources :chefs do
     resources :dishes

@@ -4,28 +4,32 @@
 
 <table>
   <thead>
-  <tr>
-    <th colspan="3"></th>
-  </tr>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
   </thead>
 
   <thead>
-  <tr>
-    <th> Correo</th>
-    <th>Status</th>
-    <th>Total</th>
-    <th colspan="3"></th>
-  </tr>
+    <tr>
+      <th> Correo</th>
+      <th>Status</th>
+      <th>Total</th>
+      <th colspan="3"></th>
+    </tr>
   </thead>
 
   <tbody>
-  <% @orders.each do |order| %>
-      <tr>
-        <td><%=order.customer.user.email%> </td>
-        <td><%=order.state%></td>
-        <td><%=order.total%></td>
-      </tr>
-  <% end %>
+    <% @orders.each do |order| %>
+    <tr>
+      <td><%=order.customer.user.email%> </td>
+      <td><%=order.state%></td>
+      <td><%=order.total%></td>
+    </tr>
+    <% end %>
   </tbody>
-
 </table>
+
+<div>
+  <h3>Total today: <%= Order.cash_flow_today %></h3>
+  <h3>Total month: <%= Order.cash_flow_month %></h3>
+</div>
