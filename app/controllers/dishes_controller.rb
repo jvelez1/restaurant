@@ -1,4 +1,6 @@
 class DishesController < ApplicationController
+  before_action :valid_chef, :authenticate_user!
+
   before_action :set_dish, only: [:show, :edit, :update, :destroy]
   before_action :set_chef
 
@@ -87,6 +89,6 @@ class DishesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dish_params
-      params.fetch(:dish, {}).permit(:name, :description, :price, :active)
+      params.fetch(:dish, {}).permit(:name, :description, :price, :active, :picture)
     end
 end

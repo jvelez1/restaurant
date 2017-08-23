@@ -1,28 +1,38 @@
-<%= form_with(model: [ @chef, @dish ], local: true) do |form| %>
-  <% if dish.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(dish.errors.count, "error") %> prohibited this dish from being saved:</h2>
+<div class = "row">
+  <%= form_with(model: [ @chef, @dish ], local: true, class: "col s12") do |form| %>
+      <% if dish.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(dish.errors.count, "error") %> prohibited this dish from being saved:</h2>
 
-      <ul>
-      <% dish.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+            <ul>
+              <% dish.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
       <% end %>
-      </ul>
-    </div>
+      <div class="input-field col s12">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+      </div>
+
+      <div class="input-field col s12 ">
+        <%= form.label :description %>
+        <%= form.text_area :description, class: "materialize-textarea" %>
+      </div>
+
+      <div class="input-field col s12">
+        <%= form.label :price %>
+        <br><br>
+        <%= form.text_field :price, :type => "decimal" %>
+      </div>
+
+      <div class="input-field col s12">
+        <%=form.file_field :picture %>
+        <br><br>
+      </div>
+
+
+      <%= form.submit "Create Dish", class:"btn btn-large waves-light" %>
   <% end %>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-
-    <%= form.label :price %>
-    <%= form.text_field :price %>
-
-    <%= form.label :active %>
-    <%= form.check_box :active, {}, true, false %>
-
-    <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

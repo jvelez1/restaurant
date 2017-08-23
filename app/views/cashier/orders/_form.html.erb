@@ -1,9 +1,9 @@
 <%= simple_form_for [:cashier, @order] do |form| %>
     <%= form.collection_check_boxes :dish_ids, Dish.all, :id, :name %>
+
     <br>
     <%= form.select :customer_id, Customer.all.map { |r| [r.user.email, r.id ] }, include_blank: false, class: "select" %>
 
     <%= form.submit "Create Order", class:"btn btn-large waves-light" %>
 <% end %>
-
 

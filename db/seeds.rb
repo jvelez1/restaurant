@@ -11,7 +11,7 @@
                   password: '12345678', # Devise.friendly_token[0,20]
                   password_confirmation: '12345678')
 
-  user.profile = Admin.new
+  user.profile = Admin.new(name: "admin#{i + 1}")
   user.save
 end
 
@@ -20,7 +20,7 @@ end
                   password: '12345678', # Devise.friendly_token[0,20]
                   password_confirmation: '12345678')
 
-  user.profile = Chef.new
+  user.profile = Chef.new(name: "chef#{i + 1}")
   user.save
 end
 
@@ -29,13 +29,13 @@ end
                   password: '12345678', # Devise.friendly_token[0,20]
                   password_confirmation: '12345678')
 
-  user.profile = Cashier.new
+  user.profile = Cashier.new(name: "Cashier#{i + 1}")
   user.save
 end
 
 chef = Chef.first()
 
-2.times do |i|
+5.times do |i|
   dish = Dish.new(name: "Plato#{i}", description: "Tiene #{i} ingerdientes",
                   price: 18.50, chef_id: chef.id)
   dish.save
@@ -46,6 +46,6 @@ end
                   password: '12345678', # Devise.friendly_token[0,20]
                   password_confirmation: '12345678')
 
-  user.profile = Customer.new
+  user.profile = Customer.new(name: "Customer#{i + 1}")
   user.save
 end

@@ -1,4 +1,6 @@
 class ChefsController < ApplicationController
+  before_action :valid_admin, :authenticate_user!
+
   before_action :set_chef, only: [:show, :edit, :update, :destroy]
 
   # GET /chefs

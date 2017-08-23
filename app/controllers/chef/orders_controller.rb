@@ -1,4 +1,6 @@
 class Chef::OrdersController < ApplicationController
+  before_action :valid_chef, :authenticate_user!
+
   before_action :set_order, only: [:finalized, :to_process]
 
   def index

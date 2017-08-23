@@ -1,4 +1,6 @@
 class Cashier::OrdersController < ApplicationController
+  before_action :valid_cashier, :authenticate_user!
+
   def index
     @orders = Order.order_today
   end

@@ -1,4 +1,5 @@
 class Admin::OrdersController < ApplicationController
+  before_action :valid_admin, :authenticate_user!
   before_action :set_order, only: [:finished]
 
   def index
