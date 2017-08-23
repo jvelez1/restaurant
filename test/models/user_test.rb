@@ -27,7 +27,20 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+
+  test "should be valid" do
+    users(:two).profile = Customer.new
+    users(:two).save
+    assert users(:two).valid?
+  end
+
+  test "email should be not valid" do
+    users(:one).profile = Customer.new
+    users(:one).save
+    users(:one).valid?
+    assert_not  users(:one).errors.messages[:email].blank?
+  end
+
+
+
 end

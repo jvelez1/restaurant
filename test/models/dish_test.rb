@@ -22,4 +22,18 @@ class DishTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
+
+=begin
+  setup do
+    @dish = Dish.create!(name: 'plato1', description: 'prueba plato', price: 10.5, chef_id: 1)
+  end
+
+  test 'aumenta en 1 cuando se crea un dish nuevo' do
+    assert_equal 1, Dish.count
+
+    Dish.create!(name: 'plato2', description: 'prueba plato', price: 10.5, chef_id: 1)
+
+    assert_equal 2, Dish.count
+  end
+=end
 end

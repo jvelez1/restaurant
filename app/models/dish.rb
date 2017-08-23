@@ -21,6 +21,10 @@ class Dish < ApplicationRecord
   has_many :orders, through: :quantities
   belongs_to :chef
 
+  validates :price, presence: true
+  validates :name, presence: true
+
+
   has_attached_file :picture, styles: { medium: '300x300>', thumb: '100x100>' },
                     default_url: '/imagenes/:style/miss.jpg'
 

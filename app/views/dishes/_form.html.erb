@@ -13,7 +13,7 @@
       <% end %>
       <div class="input-field col s12">
         <%= form.label :name %>
-        <%= form.text_field :name %>
+        <%= form.text_field :name, required: true %>
       </div>
 
       <div class="input-field col s12 ">
@@ -24,7 +24,7 @@
       <div class="input-field col s12">
         <%= form.label :price %>
         <br><br>
-        <%= form.text_field :price, :type => "decimal" %>
+        <%= form.text_field :price, :type => "decimal", required: true %>
       </div>
 
       <div class="input-field col s12">
