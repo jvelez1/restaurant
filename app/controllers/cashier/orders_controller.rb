@@ -10,7 +10,6 @@ class Cashier::OrdersController < ApplicationController
 
   def create
     @order = Order.create(order_params)
-    binding.pry
   end
 
 
